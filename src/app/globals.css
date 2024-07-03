@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.footer-content {
+  /* Style your footer content here */
+}
+
+.fire-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.fire-base {
+  animation: fire-base 5s infinite ease-in-out;
+}
+
+.fire-flicker1,
+.fire-flicker2 {
+  animation: fire-flicker 3s infinite ease-in-out;
+}
+
+.fire-spark1,
+.fire-spark2 {
+  animation: fire-spark 2s infinite linear;
+}
+
+@keyframes fire-base {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fire-flicker {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0.9);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fire-spark {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
